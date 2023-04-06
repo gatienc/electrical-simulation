@@ -2,9 +2,6 @@ ce qu'on fait c'est qu'on va minimiser la dépense financière de la consommatio
 pour trouver la valeure de charge de la batterie à atteindre pendant l'heure creuse, on minimise la fonction de coût de la dépense financière de la consommation électrique d'une maison. Cette fonction de coût est définie comme suit:
 dépense d'achat d'éléctricité en heure creuse + depense d'achat d'éléctricité en heure pleine 
 
-min (cout) 
-
-
 le inverter consomme : 0.003424 kWh par heure
 ce qui correspond à 3.424 W/h
 n'est-ce pas possible de l'éteindre la nuit ?
@@ -26,6 +23,8 @@ il faut optimiser la charge de la batterie en fonction de la charche actuelle , 
 
 
 ## bibliographie
+
+[prix du kWh en france heure creuse/ pleine](https://electricite.net/edf/tarifs)
 
 
 
