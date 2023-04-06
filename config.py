@@ -10,3 +10,6 @@ FORECAST_DAYS=3
 PANEL_AREA=1.65
 
 
+# battery parameters
+BATTERY_CAPACITY=10000
+
