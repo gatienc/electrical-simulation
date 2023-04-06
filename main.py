@@ -18,7 +18,11 @@ consumption=[]
 #daily energy importation in Wh
 importation=[]
 
-#on calcule l'état réeel de la batterie au cours de la journée avec un pas de 1h
+## pour l'instant on simule la production sur un jour seulement pour tester, on étendra ensuite à plusieurs jours
+
+
+
+#on simule l'état de charge de la batterie au cours de la journée avec un pas de 1h. on calcule dedans l'energie importée et l'energie perdue
 for i in range(24):
     #production_.append(production_prevision(i))
     #consumption.append(consuption_prevision(i))
@@ -32,3 +36,4 @@ for i in range(24):
         #the battery is empty
         importation.append(-battery_power[i])
         battery_power[i]=0
+    return

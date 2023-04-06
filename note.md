@@ -1,4 +1,11 @@
- le inverter consomme : 0.003424 kWh par heure
+ce qu'on fait c'est qu'on va minimiser la dépense financière de la consommation électrique d'une maison avec une installation photovoltaïque et une batterie de grande capacité, la simulation est faite en fonction de la prévision météo pour prédire la production électrique des panneaux solaires le lendemain
+pour trouver la valeure de charge de la batterie à atteindre pendant l'heure creuse, on minimise la fonction de coût de la dépense financière de la consommation électrique d'une maison. Cette fonction de coût est définie comme suit:
+dépense d'achat d'éléctricité en heure creuse + depense d'achat d'éléctricité en heure pleine 
+
+min (cout) 
+
+
+le inverter consomme : 0.003424 kWh par heure
 ce qui correspond à 3.424 W/h
 n'est-ce pas possible de l'éteindre la nuit ?
 
