@@ -9,9 +9,14 @@ FORECAST_DAYS=3 # between 1 and 7 (augment the time of the simulation)
 # solar panel parameters
 PANEL_AREA=1.65
 
+# electricity consumption
+CONSUMPTION_EXPECTED=27000 # Wh/day
+
+# electricity price
 
 OFFPEAK_PRICE=0.1672
 FULL_PRICE=0.2285
+EXPORT_PRICE=0
 
 # battery parameters
 BATTERY_CAPACITY=10000# kWh

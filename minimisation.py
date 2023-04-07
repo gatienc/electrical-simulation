@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.optimize import minimize_scalar
+from scipy.optimize import optimize,minimize_scalar
 import config
 #le paramètres à optimiser est l'import d'éléctricité dans la batterie
 #cette fonction est appelé quand on réalise une optimisation avec une prévision météo de 1 jour.
@@ -10,7 +10,13 @@ def oneDim_minimize(f,current_battery_capacity):
     print(result)
     return result.x
 
-
+def multDim_minimise(f):
+    bounds = optimize.Bounds([0] * config.FORECAST_DAYS, [np.inf] * config.FORECAST_DAYS)
+    x0 = np.ones(config.FORECAST_DAYS)
+    
+    result = optimize.minimize(f, x0, method='L-BFGS-B', bounds=bounds)
+    print(result)
+    return result.x
 
 
 if __name__ == "__main__":

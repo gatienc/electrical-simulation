@@ -7,6 +7,9 @@ ce qui correspond à 3.424 W/h
 n'est-ce pas possible de l'éteindre la nuit ?
 
 
+finalement ce qu'on automatise ce n'est pas la variable d'import de batteries mais la variable de charge de la batterie pour que notre problêmes soit à borne constante pour la fonction de minimisation
+
+
 pour les prévisions de consommation éléctrique en france: https://www.rte-france.com/en/eco2mix/electricity-consumption-france
 
 pour les méthodes de simulation de production éléctrique,étant donné qu'il est difficile de trouver l'efficacité d'un panneau solaire en fonction de la température,

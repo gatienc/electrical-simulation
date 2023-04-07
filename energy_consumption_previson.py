@@ -13,21 +13,24 @@
 # we will normalize the consumption according to the expected consumption of the total house in a day
 # this expected consumption per day of the dwelling is very dependent on the types of dwellings, of these methods of heatings, of insulation and of the size of the dwelling.
 
-
+import config
 import pandas as pd
 import matplotlib.pyplot as plt
 def consumption_prevision(consumption_expected):
     #on importe les données de consommation
-    df = pd.read_csv('data/typical-daily-energy-consumption.csv',header=1,names=['Heure','Consommation'])
+    df = pd.read_csv('data/typical-daily-energy-consumption.csv',header=0,names=['Heure','Consommation'])
 
 
     #on normalise la consommation
     df['Consommation']=(df['Consommation']/df['Consommation'].sum())*consumption_expected
-    plt.plot(df['Heure'],df['Consommation']/consumption_expected)
-    #plt.ylim(0,0.07)
-    plt.show()
-
+        
     return df['Consommation'].tolist()
 
 
-print(consumption_prevision(1))
+if __name__ == "__main__":
+    consommation=consumption_prevision(config.CONSUMPTION_EXPECTED)
+    plt.plot(consommation)
+    #plt.ylim(0,0.07)
+    plt.show()
+
+    
