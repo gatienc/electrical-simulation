@@ -13,7 +13,7 @@ def oneDim_minimize(f,current_battery_capacity):
 def multDim_minimise(f):
     bounds = optimize.Bounds([0] * config.FORECAST_DAYS, [np.inf] * config.FORECAST_DAYS)
     x0 = np.ones(config.FORECAST_DAYS)
-    
+
     result = optimize.minimize(f, x0, method='L-BFGS-B', bounds=bounds)
     print(result)
     return result.x

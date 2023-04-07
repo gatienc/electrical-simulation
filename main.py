@@ -2,6 +2,8 @@ import config
 import pandas as pd
 from production_prevision import SAM_production_prevision
 from energy_consumption_previson import consumption_prevision
+from scipy import optimize
+import numpy as np
 
 # def main():
 #     daily_importation=[None]*config.FORECAST_DAYS
@@ -13,7 +15,7 @@ from energy_consumption_previson import consumption_prevision
 
 
 
-def price_simulation(battery_power_start,target_day,daily_importation):
+def price_simulation(daily_importation,battery_power_start,target_day):
     daily_production=SAM_production_prevision(target_day)
     battery_power=battery_power_start
     daily_export=[0]*config.FORECAST_DAYS
@@ -21,6 +23,7 @@ def price_simulation(battery_power_start,target_day,daily_importation):
 
     #variable to optimize
     for day in range(config.FORECAST_DAYS):
+
         production=daily_production[day]
         consumption=consumption_prevision(config.CONSUMPTION_EXPECTED)
 
@@ -60,10 +63,18 @@ if __name__ == "__main__":
     jour=28
     mois=2
     target_day=str(jour)+" "+str(mois)
-
-    daily_importation=[0]*config.FORECAST_DAYS
-    battery_power_start=0
-    cost=price_simulation(battery_power_start,target_day,daily_importation)
+    daily_importation=[0]*config.FORECAST_DAYS #en Wh
+    daily_importation=[12575.02204915,  6116.67064995,  2695.85427718]
+    battery_power_start=0 #en Wh
+    cost=price_simulation(daily_importation,battery_power_start,target_day)
     print("coût en euro pour les %d prochains jours avec comme import journaliers: "%(config.FORECAST_DAYS))
     print(daily_importation)
     print("{:.2f}€".format(cost))
+
+    bounds = optimize.Bounds([0] * config.FORECAST_DAYS, [np.inf] * config.FORECAST_DAYS)
+    x0 = np.ones(config.FORECAST_DAYS)
+    result = optimize.minimize(price_simulation, x0, method='L-BFGS-B', bounds=bounds,args=(battery_power_start,target_day))
+    print(result)
+    result.x
+
+
