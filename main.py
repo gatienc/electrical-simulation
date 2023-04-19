@@ -64,7 +64,7 @@ if __name__ == "__main__":
     mois=2
     target_day=str(jour)+" "+str(mois)
     daily_importation=[0]*config.FORECAST_DAYS #en Wh
-    daily_importation=[12575.02204915,  6116.67064995,  2695.85427718]
+    daily_importation=[12575.02204915,  6116.67064995]
     battery_power_start=0 #en Wh
     cost=price_simulation(daily_importation,battery_power_start,target_day)
     print("coût en euro pour les %d prochains jours avec comme import journaliers: "%(config.FORECAST_DAYS))

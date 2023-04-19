@@ -4,7 +4,7 @@
 LATITUDE=48.53
 LONGITUDE=7.72
 HOURLY="temperature_2m,direct_radiation_instant"
-FORECAST_DAYS=3 # between 1 and 7 (augment the time of the simulation)
+FORECAST_DAYS=2 # between 1 and 7 (augment the time of the simulation)
 
 # solar panel parameters
 PANEL_AREA=1.65
