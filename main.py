@@ -19,7 +19,7 @@ def price_simulation(daily_importation,battery_power_start,target_day):
     daily_production=SAM_production_prevision(target_day)
     battery_power=battery_power_start
     daily_export=[0]*config.FORECAST_DAYS
-    daily_full_peak_import=[0]*config.FORECAST_DAYS
+    daily_hour_import=[0]*config.FORECAST_DAYS
 
     #variable to optimize
     for day in range(config.FORECAST_DAYS):
@@ -48,15 +48,15 @@ def price_simulation(daily_importation,battery_power_start,target_day):
 
             elif temp_battery_power<0:
                 #the battery is empty
-                daily_full_peak_import[day]+=-temp_battery_power
+                daily_hour_import[day]+=-temp_battery_power*config.OFFPEAK_PRICE if config.OFFPEAK_HOURS[i] else -temp_battery_power*config.FULL_PRICE
                 temp_battery_power=0
             else:
                 battery_power=temp_battery_power
 
-    return energetic_price(sum(daily_importation),sum(daily_full_peak_import),sum(daily_export))
+    return energetic_price(sum(daily_importation),sum(daily_hour_import),sum(daily_export))
     
-def energetic_price(off_peak_import,full_peak_import,export):
-    cost=(off_peak_import*config.OFFPEAK_PRICE+full_peak_import*config.FULL_PRICE-export*config.EXPORT_PRICE)/1000
+def energetic_price(off_peak_import,daily_hour_peak_import,export):
+    cost=(off_peak_import*config.OFFPEAK_PRICE+daily_hour_peak_import-export*config.EXPORT_PRICE)/1000
     return cost
 
 if __name__ == "__main__":

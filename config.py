@@ -18,5 +18,10 @@ OFFPEAK_PRICE=0.1672
 FULL_PRICE=0.2285
 EXPORT_PRICE=0
 
+
+# offpeak_hours
+
+OFFPEAK_HOURS=[1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]# offpeak from 23h to 7h
+
 # battery parameters
 BATTERY_CAPACITY=10000# kWh
