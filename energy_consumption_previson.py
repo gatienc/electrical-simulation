@@ -30,6 +30,10 @@ def consumption_prevision(consumption_expected):
 if __name__ == "__main__":
     consommation=consumption_prevision(config.CONSUMPTION_EXPECTED)
     plt.plot(consommation)
+
+    plt.xlabel('heure de la journée')
+    plt.ylabel('consommation (Wh)')
+    plt.title('consommation typique d\'une journée pour un foyer')
     #plt.ylim(0,0.07)
     plt.show()
 

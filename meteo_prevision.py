@@ -16,10 +16,8 @@ def meteo_prevision(latitude, longitude, hourly, forecast_days):
 
     # Get the temperature
     temperature = data["hourly"]["temperature_2m"]
-    print(temperature)
     # Get the direct radiation
     direct_radiation = data["hourly"]["direct_radiation_instant"]
-    print(direct_radiation)
     return temperature, direct_radiation
 
 

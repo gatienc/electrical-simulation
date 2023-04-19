@@ -29,7 +29,6 @@ def SAM_production_prevision(day):
 
     # Appliquez le masque pour obtenir un sous-ensemble du DataFrame contenant uniquement les données entre la date cible et la date de fin
     filtered_data = np.array(df.loc[mask]['System power generated | (kW)'].tolist())*1000 #on multiplie par 1000 pour avoir l'énergie en Wh
-    print(filtered_data)
     #dans le cas où on execute la fonction pour la tester on montre le graphe de production donc on sort la liste des trois jours
     if __name__=="__main__":
         return filtered_data
@@ -50,6 +49,5 @@ if __name__ == "__main__":
     day=str(jour)+" "+str(mois)
 
     filtered_data=SAM_production_prevision(day)
-    print(filtered_data)
     plt.plot(filtered_data)
     plt.show()
